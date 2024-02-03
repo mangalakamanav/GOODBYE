@@ -30,23 +30,51 @@
       position: absolute;
       bottom: 20px;
     }
+
+    #customAudio {
+      width: 80%;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #playButton,
+    #pauseButton {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
   <h1>"Until next time...."</h1>
-  <audio onended="displayGoodbyeMessage()">
-    <source src="file_example_MP3_5MG.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+
+  <!-- Custom Audio Player -->
+  <div id="customAudio">
+    <button id="playButton">Play</button>
+    <button id="pauseButton">Pause</button>
+    <audio id="audio" src="file_example_MP3_5MG.mp3" type="audio/mp3"></audio>
+  </div>
 
   <!-- Display message after audio -->
   <p id="goodbyeMessage">Goodbye Miss.JAYKAY, I'm going to miss you!</p>
 
   <script>
-    function displayGoodbyeMessage() {
-      document.getElementById("goodbyeMessage").style.display = "block";
-    }
+    const audio = document.getElementById('audio');
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const goodbyeMessage = document.getElementById('goodbyeMessage');
+    const customAudio = document.getElementById('customAudio');
+
+    playButton.addEventListener('click', function () {
+      audio.play();
+      customAudio.style.display = 'none';
+      goodbyeMessage.style.display = 'block';
+    });
+
+    pauseButton.addEventListener('click', function () {
+      audio.pause();
+    });
   </script>
 </body>
 
