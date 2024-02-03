@@ -29,11 +29,16 @@
     }
 
     #goodbyeMessage {
-      display: none;
+      opacity: 0;
       color: #fff;
       font-size: 1em;
       position: absolute;
       bottom: 20px;
+      transition: opacity 1s ease-in-out; /* Adjust the duration as needed */
+    }
+
+    #goodbyeMessage.active {
+      opacity: 1;
     }
   </style>
 </head>
@@ -46,11 +51,12 @@
   </audio>
 
   <!-- Display message after audio -->
-  <p id="goodbyeMessage">Goodbye Jiwan, I'm going to miss you!</p>
+  <p id="goodbyeMessage">Goodbye JAYKAY, I'm going to miss you!</p>
 
   <script>
     function displayGoodbyeMessage() {
-      document.getElementById("goodbyeMessage").style.display = "block";
+      const goodbyeMessage = document.getElementById("goodbyeMessage");
+      goodbyeMessage.classList.add("active");
     }
   </script>
 </body>
