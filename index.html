@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Music Page</title>
+  <title>Goodbye Music</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('your-collage-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      color: #fff;
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 80%;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Welcome to My Music Page!</h1>
+  <h1>Goodbye Music</h1>
   <audio controls>
-    <source src="your-mp3-filename.mp3" type="audio/mp3">
+    <source src="bye.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 </body>
+
 </html>
