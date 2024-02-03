@@ -27,15 +27,32 @@
       margin-top: 20px;
       width: 80%;
     }
+
+    #goodbyeMessage {
+      display: none;
+      color: #fff;
+      font-size: 1em;
+      position: absolute;
+      bottom: 20px;
+    }
   </style>
 </head>
 
 <body>
   <h1>"Until next time...."</h1>
-  <audio controls>
+  <audio controls onended="displayGoodbyeMessage()">
     <source src="file_example_MP3_5MG.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Display message after audio -->
+  <p id="goodbyeMessage">Goodbye Jiwan, I'm going to miss you!</p>
+
+  <script>
+    function displayGoodbyeMessage() {
+      document.getElementById("goodbyeMessage").style.display = "block";
+    }
+  </script>
 </body>
 
 </html>
