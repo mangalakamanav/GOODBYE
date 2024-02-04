@@ -16,6 +16,18 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+      z-index: 1;
+      animation: fadeIn 5s ease-in-out; /* Adjust the duration as needed */
     }
 
     h1 {
@@ -23,6 +35,7 @@
       font-family: 'Georgia', serif;
       opacity: 0;
       transition: opacity 2s ease-in-out; /* Adjust the duration as needed */
+      z-index: 2;
     }
 
     h1.active {
@@ -32,6 +45,7 @@
     audio {
       margin-top: 20px;
       width: 80%;
+      z-index: 2;
     }
 
     #goodbyeMessage {
@@ -41,15 +55,26 @@
       position: absolute;
       bottom: 20px;
       transition: opacity 1s ease-in-out; /* Adjust the duration as needed */
+      z-index: 2;
     }
 
     #goodbyeMessage.active {
       opacity: 1;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 0.5; /* Adjust the final opacity as needed */
+      }
+    }
   </style>
 </head>
 
 <body>
+  <div class="overlay"></div>
   <h1 id="untilNextTime">"Until next time...."</h1>
   <audio controls onended="displayGoodbyeMessage()">
     <source src="file_example_MP3_5MG.mp3" type="audio/mp3">
