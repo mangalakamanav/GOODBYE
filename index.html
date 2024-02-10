@@ -18,77 +18,59 @@
       align-items: center;
     }
 
-    .fade-in-out {
+    h1 {
+      color: #fff;
+      font-family: 'Georgia', serif;
       opacity: 0;
       transition: opacity 2s ease-in-out; /* Adjust the duration as needed */
     }
 
-    .fade-in-out.active {
-      opacity: 1;
-    }
-
-    h1, #goodbyeMessage {
-      color: #fff;
-      font-family: 'Georgia', serif;
-      position: absolute;
-      bottom: 20px;
-      font-size: 1.5em;
-    }
-
     h1.active {
-      animation: fadeInOut 4s forwards; /* Adjust the duration as needed */
-    }
-
-    @keyframes fadeInOut {
-      0%, 100% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
+      opacity: 1;
     }
 
     audio {
       margin-top: 20px;
       width: 80%;
-      display: none;
+    }
+
+    #goodbyeMessage {
+      opacity: 0;
+      color: #fff;
+      font-size: 1em;
+      position: absolute;
+      bottom: 20px;
+      transition: opacity 1s ease-in-out; /* Adjust the duration as needed */
+    }
+
+    #goodbyeMessage.active {
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
-  <h1 id="untilNextTime" class="fade-in-out">"Fading Message"</h1>
-
-  <script>
-    window.onload = function () {
-      const untilNextTime = document.getElementById("untilNextTime");
-      untilNextTime.classList.add("active");
-
-      setTimeout(function () {
-        untilNextTime.classList.remove("active");
-        showAudio();
-      }, 4000); // Adjust the delay as needed
-    };
-
-    function showAudio() {
-      const audioElement = document.querySelector("audio");
-      const goodbyeMessage = document.createElement("p");
-      goodbyeMessage.id = "goodbyeMessage";
-      goodbyeMessage.classList.add("fade-in-out");
-      goodbyeMessage.textContent = "Goodbye JK, I'm going to miss you!";
-      document.body.appendChild(goodbyeMessage);
-
-      setTimeout(function () {
-        audioElement.style.display = "block";
-        goodbyeMessage.classList.add("active");
-      }, 1000); // Adjust the delay as needed
-    }
-  </script>
-
+  <h1 id="untilNextTime">"Until next time...."</h1>
   <audio controls onended="displayGoodbyeMessage()">
     <source src="Recording (2).mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Display message after audio -->
+  <p id="goodbyeMessage">Goodbye JAYKAY, I'm going to miss you!</p>
+
+  <script>
+    // Add this script to gradually reveal the "Until next time...." text
+    window.onload = function () {
+      const untilNextTime = document.getElementById("untilNextTime");
+      untilNextTime.classList.add("active");
+    };
+
+    function displayGoodbyeMessage() {
+      const goodbyeMessage = document.getElementById("goodbyeMessage");
+      goodbyeMessage.classList.add("active");
+    }
+  </script>
 </body>
 
-</html>
+</html> 
